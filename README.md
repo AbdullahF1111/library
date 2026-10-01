@@ -1,7 +1,4 @@
-
 ---
-
-```markdown
 # 📚 Library App
 A simple JavaScript application for managing a personal library.  
 Users can add books, delete books, and toggle their read status.  
@@ -66,6 +63,5 @@ The project is hosted on GitHub Pages:
 
 ## 📄 License
 This project is open-source and free to use.
-```
 
 ---
