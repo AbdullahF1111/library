@@ -1,4 +1,5 @@
 const myLibrary = [];
+const cardColors = ["#fce4ec", "#e3f2fd", "#e8f5e9", "#fff3e0", "#ede7f6"];
 
 function Book(title, author, pages, isRead) {
   this.id = crypto.randomUUID();   // ID that can increase automatically
@@ -11,7 +12,7 @@ function Book(title, author, pages, isRead) {
 function addBookToLibrary(title, author, pages, isRead) {
   const newBook = new Book(title, author, pages, isRead);
   myLibrary.push(newBook);
-  return newBook; 
+  return newBook;
 }
 
 function displayLibrary() {
@@ -21,7 +22,7 @@ function displayLibrary() {
   myLibrary.forEach(book => {
     const card = document.createElement("div");
     card.classList.add("book-card");
-
+    card.style.backgroundColor = cardColors[myLibrary.indexOf(book) % cardColors.length];
     card.innerHTML = `
       <h3>${book.title}</h3>
       <p><strong>Author:</strong> ${book.author}</p>
@@ -35,7 +36,6 @@ function displayLibrary() {
     `;
 
     container.appendChild(card);
-
     const deleteBtn = card.querySelector(".delete-btn");
     deleteBtn.addEventListener("click", () => {
       const id = deleteBtn.dataset.id;
@@ -46,18 +46,8 @@ function displayLibrary() {
     readBtn.addEventListener("click", () => {
       book.isRead = !book.isRead; // toggle the read status
       displayLibrary();
-      // const id = readBtn.dataset.id;
-      // toggleReadStatus(id);
     });
   });
-}
-
-function toggleReadStatus(id) {
-  const book = myLibrary.find(book => book.id === id);
-  if (book) {
-    book.isRead = !book.isRead; // toggle the read status
-    displayLibrary();           // update the display
-  }
 }
 
 function removeBook(id) {
