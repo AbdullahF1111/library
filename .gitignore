@@ -1,2 +1,22 @@
-node_modules/
+# System files
 .DS_Store
+Thumbs.db
+
+# Node (optional – safe to keep even if not using Node)
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VS Code
+.vscode/
+
+# WSL / Linux temp files
+*.swp
+*.swo
+
+# Build folders (if added later)
+dist/
+build/
